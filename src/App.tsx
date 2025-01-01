@@ -3,7 +3,8 @@ import "./App.css";
 import { decrement, increment } from "./redux/features/counter/cunterSlice";
 
 function App() {
-  const count = useSelector((state) => state.counter.value);
+  const count = useSelector((state) => state.counter.count);
+  // console.log(counter);
   const dispatch = useDispatch();
   const handleIncrement = () => {
     dispatch(increment());
