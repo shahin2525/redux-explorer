@@ -10,7 +10,7 @@ type TProps = {
 
 const TaskCard = ({ task }: TProps) => {
   return (
-    <div className="w-full bg-black shadow-md rounded-lg px-5 py-3  border-2 border-red-200 mt-10">
+    <div className="w-full bg-black shadow-md rounded-lg px-5 py-3  border-2 border-red-200 mt-5">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div
