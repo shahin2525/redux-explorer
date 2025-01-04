@@ -1,37 +1,33 @@
 import { RootState } from "@/redux/store";
 import { TTask } from "@/types/typs";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
 type TInitialState = {
   task: TTask[];
   filter: "low" | "medium" | "high" | "all";
 };
 
 const initialState: TInitialState = {
-  task: [
-    {
-      id: "dd2",
-      title: "next level",
-      description: "next level is super power",
-      dueTime: "2025-11",
-      isComplete: false,
-      priority: "medium",
-    },
-    {
-      id: "dd3",
-      title: "programming",
-      description: "programming is super power",
-      dueTime: "2025-11",
-      isComplete: false,
-      priority: "low",
-    },
-  ],
+  task: [],
   filter: "all",
 };
-
+type DraftData = Pick<TTask, "description" | "dueTime" | "priority" | "title">;
+const id = nanoid();
+const createData = (data: DraftData): TTask => {
+  return {
+    id,
+    isComplete: false,
+    ...data,
+  };
+};
 const taskSlice = createSlice({
   name: "task",
   initialState,
-  reducers: {},
+  reducers: {
+    addTask: (state, action: PayloadAction<DraftData>) => {
+      const addTaskData = createData(action.payload);
+      state.task.push(addTaskData);
+    },
+  },
 });
 export const selectTask = (state: RootState) => {
   return state.todo.task;
@@ -39,4 +35,5 @@ export const selectTask = (state: RootState) => {
 export const selectFilter = (state: RootState) => {
   return state.todo.filter;
 };
+export const { addTask } = taskSlice.actions;
 export default taskSlice.reducer;
