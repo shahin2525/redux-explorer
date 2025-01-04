@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const Tasks = () => {
   const tasks = useSelector(selectTask);
 
-  // console.log(tasks);
+  console.log(tasks);
 
   return (
     <div className="mt-10">
