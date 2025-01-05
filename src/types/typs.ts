@@ -5,6 +5,7 @@ export type TTask = {
   dueTime: string;
   isComplete: boolean;
   priority: "low" | "medium" | "high";
+  user: "string" | null;
 };
 
 // Define a type for the slice state

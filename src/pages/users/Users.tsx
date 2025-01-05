@@ -14,9 +14,11 @@ const Users = () => {
         {/* <AddTaskModal></AddTaskModal> */}
         <AddUserModal></AddUserModal>
       </div>
-      {users.map((user) => (
-        <UserCard user={user} key={user.id}></UserCard>
-      ))}
+      <div className="grid grid-cols-3 gap-2">
+        {users.map((user) => (
+          <UserCard user={user} key={user.id}></UserCard>
+        ))}
+      </div>
     </div>
   );
 };

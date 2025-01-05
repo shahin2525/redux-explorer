@@ -9,7 +9,7 @@ const Tasks = () => {
   const tasks = useSelector(selectTask);
   const dispatch = useAppDispatch();
 
-  console.log(tasks);
+  // console.log(tasks);
 
   return (
     <div className="mt-10">

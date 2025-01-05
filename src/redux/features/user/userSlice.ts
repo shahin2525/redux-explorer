@@ -5,7 +5,16 @@ interface IInitialState {
   users: TUser[];
 }
 const initialState: IInitialState = {
-  users: [],
+  users: [
+    {
+      id: "cgFVk2K-GW7HSvfxJcv13",
+      name: "Md rakib",
+    },
+    {
+      id: "cgFVk2K-GW7HSvfxJcv14",
+      name: "Md sakib",
+    },
+  ],
 };
 type DraftUser = Pick<TUser, "name">;
 const createUser = (data: DraftUser): TUser => {

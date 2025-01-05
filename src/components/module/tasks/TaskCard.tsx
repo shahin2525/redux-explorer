@@ -5,7 +5,8 @@ import {
   deleteState,
   toggleCompletedState,
 } from "@/redux/features/task/taskSlice";
-import { useAppDispatch } from "@/redux/hooks";
+import { selectUser } from "@/redux/features/user/userSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { TTask } from "@/types/typs";
 import { Trash2 } from "lucide-react";
 // import { Checkbox } from "@";
@@ -15,8 +16,12 @@ type TProps = {
 
 const TaskCard = ({ task }: TProps) => {
   const dispatch = useAppDispatch();
+  console.log(task);
+  const users = useAppSelector(selectUser);
+  console.log(users);
+  const assignedUser = users.find((user) => user.id === task.user);
+
   const handleDelete = (id: string) => {
-    console.log(task);
     dispatch(deleteState(id));
   };
   return (
@@ -53,6 +58,9 @@ const TaskCard = ({ task }: TProps) => {
           ></Checkbox>
         </div>
       </div>
+      <p className="text-gray-600">
+        assign-user :{assignedUser ? assignedUser.name : "no user"}
+      </p>
       <p className="text-gray-600">{task.description}</p>
     </div>
   );

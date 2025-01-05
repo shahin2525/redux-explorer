@@ -30,6 +30,7 @@ const AddUserModal = () => {
     dispatch(addUser(data as TUser));
     console.log(data);
   };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
