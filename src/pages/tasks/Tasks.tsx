@@ -1,13 +1,13 @@
 import { AddTaskModal } from "@/components/module/tasks/AddTaskModal";
-import TaskCard from "@/components/module/tasks/TaskCard";
+// import TaskCard from "@/components/module/tasks/TaskCard";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { filterTask, selectTask } from "@/redux/features/task/taskSlice";
-import { useAppDispatch } from "@/redux/hooks";
-import { useSelector } from "react-redux";
+// import { filterTask, selectTask } from "@/redux/features/task/taskSlice";
+// import { useAppDispatch } from "@/redux/hooks";
+// import { useSelector } from "react-redux";
 
 const Tasks = () => {
-  const tasks = useSelector(selectTask);
-  const dispatch = useAppDispatch();
+  // const tasks = useSelector(selectTask);
+  // const dispatch = useAppDispatch();
 
   // console.log(tasks);
 
@@ -18,26 +18,26 @@ const Tasks = () => {
         <Tabs defaultValue="all" className="w-[400px]">
           <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger
-              onClick={() => dispatch(filterTask("all"))}
+              // onClick={() => dispatch(filterTask("all"))}
               value="all"
             >
               All
             </TabsTrigger>
             <TabsTrigger
-              onClick={() => dispatch(filterTask("low"))}
+              // onClick={() => dispatch(filterTask("low"))}
               value="low"
             >
               Low
             </TabsTrigger>
             <TabsTrigger
               // onClick={dispatch(filterTask("medium"))}
-              onClick={() => dispatch(filterTask("medium"))}
+              // onClick={() => dispatch(filterTask("medium"))}
               value="medium"
             >
               Medium
             </TabsTrigger>
             <TabsTrigger
-              onClick={() => dispatch(filterTask("high"))}
+              // onClick={() => dispatch(filterTask("high"))}
               value="high"
             >
               High
@@ -46,9 +46,9 @@ const Tasks = () => {
         </Tabs>
         <AddTaskModal></AddTaskModal>
       </div>
-      {tasks.map((task) => (
+      {/* {tasks.map((task) => (
         <TaskCard task={task} key={task.id}></TaskCard>
-      ))}
+      ))} */}
     </div>
   );
 };

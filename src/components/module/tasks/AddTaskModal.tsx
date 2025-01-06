@@ -30,10 +30,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
-import { addTask } from "@/redux/features/task/taskSlice";
-import { selectUser } from "@/redux/features/user/userSlice";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { TTask } from "@/types/typs";
+// import { addTask } from "@/redux/features/task/taskSlice";
+// import { selectUser } from "@/redux/features/user/userSlice";
+// import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+// import { TTask } from "@/types/typs";
 // import { format } from "date-fns";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
@@ -44,14 +44,14 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 export function AddTaskModal() {
   const [open, setOpen] = useState(false);
   const form = useForm();
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    dispatch(addTask(data as TTask));
-    setOpen(false);
-    form.reset();
-    // console.log(data);
+    // dispatch(addTask(data as TTask));
+    // setOpen(false);
+    // form.reset();
+    console.log(data);
   };
-  const users = useAppSelector(selectUser);
+  // const users = useAppSelector(selectUser);
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
@@ -139,11 +139,11 @@ export function AddTaskModal() {
                       {/* <SelectItem value="low">Low</SelectItem>
                       <SelectItem value="medium">Medium</SelectItem>
                       <SelectItem value="high">High</SelectItem> */}
-                      {users.map((user) => (
+                      {/* {users.map((user) => (
                         <SelectItem value={user.id} key={user.id}>
                           {user.name}
                         </SelectItem>
-                      ))}
+                      ))} */}
                     </SelectContent>
                   </Select>
                 </FormItem>
