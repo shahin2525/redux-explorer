@@ -30,6 +30,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
+import { useCreateTaskMutation } from "@/redux/api/baseApi";
 // import { addTask } from "@/redux/features/task/taskSlice";
 // import { selectUser } from "@/redux/features/user/userSlice";
 // import { useAppDispatch, useAppSelector } from "@/redux/hooks";
@@ -44,12 +45,18 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 export function AddTaskModal() {
   const [open, setOpen] = useState(false);
   const form = useForm();
+  const [createTask, { data, isLoading }] = useCreateTaskMutation();
   // const dispatch = useAppDispatch();
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     // dispatch(addTask(data as TTask));
-    // setOpen(false);
-    // form.reset();
-    console.log(data);
+    const taskData = {
+      ...data,
+      isCompleted: false,
+    };
+    createTask(taskData);
+    setOpen(false);
+    form.reset();
+    // console.log(taskData);
   };
   // const users = useAppSelector(selectUser);
   return (
